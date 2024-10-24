@@ -73,13 +73,6 @@
         
         </plugins>
     </build>
-            <!-- Déployer vers Nexus -->
-    <distributionManagement>
-        <repository>
-            <id>deploymentRepo</id>
-            <name>admin</name>
-            <url>${NEXUS_URL}</url>
-        </repository>
-    </distributionManagement>
+    
 
 </project>
