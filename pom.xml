@@ -74,16 +74,16 @@
         </plugins>
     </build>
     <distributionManagement>
-         <repository>
-                  <id>deploymentRepo</id>
-                  <name>Nexus</name>
-                  <url>http://192.168.1.6:8081/repository/maven-releases/</url>
-         </repository>
-              <snapshotRepository>
-        <id>deploymentRepo</id>
-        <name>Nexus Snapshots</name>
-        <url>http://192.168.1.6:8081/repository/maven-snapshots/</url> <!-- Ajout du dépôt pour les SNAPSHOTs -->
-    </snapshotRepository>
-</distributionManagement>
+        <repository>
+            <id>deploymentRepo</id>
+            <name>Nexus</name>
+            <url>http://192.168.33.10:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>deploymentRepo</id>
+            <name>Nexus Snapshots</name>
+            <url>http://192.168.33.10:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
