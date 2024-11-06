@@ -1,5 +1,6 @@
 package tn.esprit.tpfoyer17.services.impementations;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -29,6 +30,15 @@ public class UniversiteService implements IUniversiteService {
     public Universite addUniversity(Universite u) {
         return universiteRepository.save(u);
     }
+
+    public void deleteUniversity(long idUniversity) {
+        if (universiteRepository.existsById(idUniversity)) {
+            universiteRepository.deleteById(idUniversity);
+        } else {
+            throw new EntityNotFoundException("Université non trouvée avec l'ID: " + idUniversity);
+        }
+    }
+
 
     @Override
     public Universite updateUniversity(Universite u) {

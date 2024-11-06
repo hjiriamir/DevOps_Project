@@ -76,10 +76,27 @@ public class UniversiteServicesTest {
     public void testDeleteUniversity_ProductExists() {
         when(universiteRepository.existsById(1L)).thenReturn(true);
 
-        universiteService.retrieveUniversity(1L);
+        universiteService.deleteUniversity(1L);
 
         verify(universiteRepository, times(1)).deleteById(1L);
     }
+    @Test
+    public void testRetrieveUniversity_NotFound() {
+       when(universiteRepository.findById(1L)).thenReturn(Optional.empty());
+       assertThrows(EntityNotFoundException.class,() -> universiteService.retrieveUniversity(1L));
+    }
+    @Test
+    public void testRetrieveUniversity_Existe() {
+        Universite universite = new Universite();
+        universite.setIdUniversite(1L);
+        when(universiteRepository.findById(1L)).thenReturn(Optional.of(universite));
+
+        Universite resultat = universiteService.retrieveUniversity(1L);
+
+        assertNotNull(resultat);  // Vérifie que le résultat n'est pas null
+        assertEquals(1L, resultat.getIdUniversite());  // Vérifie que l'université retournée a l'ID correct
+    }
+
 
     @Test
     public void testFilterUniversities() {
