@@ -18,4 +18,6 @@ public interface IUniversiteService {
 
     public Universite affecterFoyerAUniversite (long idFoyer, String nomUniversite) ;
 
+
+
 }

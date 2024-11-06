@@ -14,10 +14,10 @@ public interface UniversiteRepository extends CrudRepository<Universite,Long> {
     Universite findByNomUniversiteLike(String nomu);
 
    // List<Chambre> findByNomUniversiteLikeAndFoyerBlocsChambres(String nom);
-
+   List<Universite> findByNomUniversiteContainingAndAdresseContaining(String nomUniversite, String adresse);
     List<Reservation>
     findByFoyerBlocsChambresReservationsAnneeUniversitaireAndNomUniversite(
             LocalDate anneeUniversite,
                                                                                              String nomUniversite);
-
 }
+

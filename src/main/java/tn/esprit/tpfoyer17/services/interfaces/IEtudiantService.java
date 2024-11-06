@@ -13,4 +13,5 @@ public interface IEtudiantService {
     Etudiant retrieveEtudiant(long  idEtudiant);
     void removeEtudiant(long idEtudiant);
     List<Etudiant> findByReservationsAnneeUniversitaire();
+
 }

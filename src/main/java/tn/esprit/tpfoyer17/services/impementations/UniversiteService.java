@@ -48,6 +48,9 @@ public class UniversiteService implements IUniversiteService {
         universite.setFoyer(null);
         return  universiteRepository.save(universite);
     }
+    public List<Universite> filterUniversities(String nomUniversite, String adresse) {
+        return universiteRepository.findByNomUniversiteContainingAndAdresseContaining(nomUniversite, adresse);
+    }
 
     @Override
     public Universite affecterFoyerAUniversite(long idFoyer, String nomUniversite) {
