@@ -82,7 +82,7 @@ public class UniversiteServicesTest {
     }
     @Test
     public void testRetrieveUniversity_NotFound() {
-       when(universiteRepository.findById(1L)).thenReturn(Optional.empty());
+       when(universiteRepository.findById(99L)).thenReturn(Optional.empty());
        assertThrows(EntityNotFoundException.class,() -> universiteService.retrieveUniversity(1L));
     }
     @Test
