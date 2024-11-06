@@ -12,7 +12,10 @@ import tn.esprit.tpfoyer17.repositories.FoyerRepository;
 import tn.esprit.tpfoyer17.repositories.UniversiteRepository;
 import tn.esprit.tpfoyer17.services.interfaces.IUniversiteService;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 @AllArgsConstructor
@@ -70,4 +73,14 @@ public class UniversiteService implements IUniversiteService {
         return universiteRepository.save(universite);
 
     }
+    public List<Universite> retrouverUniversitesParFoyer(boolean avecFoyer) {
+        if (avecFoyer) {
+            return universiteRepository.findByFoyerIsNotNull();
+        } else {
+            return universiteRepository.findByFoyerIsNull();
+        }
+    }
+
+
+
 }

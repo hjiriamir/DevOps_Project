@@ -12,6 +12,7 @@ import tn.esprit.tpfoyer17.repositories.UniversiteRepository;
 import tn.esprit.tpfoyer17.services.impementations.UniversiteService;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -181,4 +182,44 @@ public class UniversiteServicesTest {
         assertEquals("Universite 2", result.get(1).getNomUniversite());
         verify(universiteRepository, times(1)).findAll();
     }
+    @Test
+    public void testRetrouverUniversitesParFoyer() {
+        // Arrange
+        Foyer foyer = Foyer.builder().idFoyer(1L).build();
+
+        Universite universiteAvecFoyer = Universite.builder()
+                .idUniversite(1L)
+                .nomUniversite("Université A")
+                .adresse("Paris")
+                .foyer(foyer)
+                .build();
+
+        Universite universiteSansFoyer = Universite.builder()
+                .idUniversite(2L)
+                .nomUniversite("Université B")
+                .adresse("Tunis")
+                .foyer(null)
+                .build();
+
+        // Simulation des méthodes du repository
+        when(universiteRepository.findByFoyerIsNotNull()).thenReturn(Collections.singletonList(universiteAvecFoyer));
+        when(universiteRepository.findByFoyerIsNull()).thenReturn(Collections.singletonList(universiteSansFoyer));
+
+        // Act & Assert
+
+        // Test 1: Universités avec foyer
+        List<Universite> resultAvecFoyer = universiteService.retrouverUniversitesParFoyer(true);
+        assertEquals(1, resultAvecFoyer.size());
+        assertTrue(resultAvecFoyer.contains(universiteAvecFoyer));
+
+        // Test 2: Universités sans foyer
+        List<Universite> resultSansFoyer = universiteService.retrouverUniversitesParFoyer(false);
+        assertEquals(1, resultSansFoyer.size());
+        assertTrue(resultSansFoyer.contains(universiteSansFoyer));
+
+        // Vérification des appels du repository
+        verify(universiteRepository, times(1)).findByFoyerIsNotNull();
+        verify(universiteRepository, times(1)).findByFoyerIsNull();
+    }
+
 }

@@ -18,6 +18,12 @@ public interface UniversiteRepository extends CrudRepository<Universite,Long> {
     List<Reservation>
     findByFoyerBlocsChambresReservationsAnneeUniversitaireAndNomUniversite(
             LocalDate anneeUniversite,
+
                                                                                              String nomUniversite);
+    List<Universite> findByFoyerIsNotNull();
+
+
+    List<Universite> findByFoyerIsNull();
 }
+
 
