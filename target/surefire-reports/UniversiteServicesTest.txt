@@ -1,14 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: UniversiteServicesTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 2.548 s <<< FAILURE! - in UniversiteServicesTest
-UniversiteServicesTest.testRetrieveUniversity_NotFound  Time elapsed: 0.013 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected jakarta.persistence.EntityNotFoundException to be thrown, but nothing was thrown.
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
-	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3083)
-	at UniversiteServicesTest.testRetrieveUniversity_NotFound(UniversiteServicesTest.java:86)
+Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 3.128 s <<< FAILURE! - in UniversiteServicesTest
+UniversiteServicesTest.testFilterUniversities  Time elapsed: 0.018 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <2> but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:528)
+	at UniversiteServicesTest.testFilterUniversities(UniversiteServicesTest.java:114)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -81,13 +83,13 @@ org.opentest4j.AssertionFailedError: Expected jakarta.persistence.EntityNotFound
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-UniversiteServicesTest.testGetProductById_ProductNotFound  Time elapsed: 0.007 s  <<< FAILURE!
+UniversiteServicesTest.testRetrieveUniversity_NotFound  Time elapsed: 0.018 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected jakarta.persistence.EntityNotFoundException to be thrown, but nothing was thrown.
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3083)
-	at UniversiteServicesTest.testGetProductById_ProductNotFound(UniversiteServicesTest.java:53)
+	at UniversiteServicesTest.testRetrieveUniversity_NotFound(UniversiteServicesTest.java:81)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

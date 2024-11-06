@@ -46,12 +46,7 @@ public class UniversiteServicesTest {
         verify(universiteRepository, times(1)).save(universite);
     }
 
-    @Test
-    public void testGetProductById_ProductNotFound() {
-        when(universiteRepository.findById(1L)).thenReturn(Optional.empty());
 
-        assertThrows(EntityNotFoundException.class, () -> universiteService.retrieveUniversity(1L));
-    }
 
     @Test
     public void testUpdateUniversity() {
@@ -83,7 +78,7 @@ public class UniversiteServicesTest {
     @Test
     public void testRetrieveUniversity_NotFound() {
        when(universiteRepository.findById(99L)).thenReturn(Optional.empty());
-       assertThrows(EntityNotFoundException.class,() -> universiteService.retrieveUniversity(1L));
+       assertThrows(EntityNotFoundException.class,() -> universiteService.retrieveUniversity(99L));
     }
     @Test
     public void testRetrieveUniversity_Existe() {
@@ -110,8 +105,9 @@ public class UniversiteServicesTest {
                 .adresse("Lyon")
                 .build();
 
-        when(universiteRepository.findByNomUniversiteContainingAndAdresseContaining("University", "France"))
-                .thenReturn(Arrays.asList(u1, u2));
+        when(universiteRepository.findByNomUniversiteContainingAndAdresseContaining("University", "Paris"))
+                .thenReturn(Arrays.asList(u1));
+
 
         List<Universite> result = universiteService.filterUniversities("University", "France");
 
