@@ -86,7 +86,7 @@
               <snapshotRepository>
         <id>deploymentRepo</id>
         <name>Nexus Snapshots</name>
-        <url>http://192.168.100.9:8081/repository/maven-snapshots/</url> <!-- Ajout du dépôt pour les SNAPSHOTs -->
+        <url>http://192.168.100.9:8081/repository/maven-snapshots/</url> 
     </snapshotRepository>
 </distributionManagement>
 
