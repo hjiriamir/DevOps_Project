@@ -24,7 +24,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ReservationService implements IReservationService {
+public abstract class ReservationService implements IReservationService {
     ReservationRepository reservationRepository;
     EtudiantRepository etudiantRepository;
     ChambreRepository chambreRepository;
@@ -40,7 +40,7 @@ public class ReservationService implements IReservationService {
         return reservationRepository.save(res);
     }
 
-    @Override
+   /* @Override
     public Reservation retrieveReservation(String idReservation) {
         return reservationRepository.findById(idReservation).orElse(null);
 
@@ -97,7 +97,6 @@ public class ReservationService implements IReservationService {
                         .build());
 
 
-        //Vérifier capacité maximale de la chambre
         if (reservation.isEstValide() && (capaciteChambreMaximale(chambre))) {
             chambre.getReservations().add(reservation);
             reservation.getEtudiants().add(etudiant);
@@ -137,5 +136,5 @@ public class ReservationService implements IReservationService {
                 return false;
             }
         }
-    }
+    }*/
 }

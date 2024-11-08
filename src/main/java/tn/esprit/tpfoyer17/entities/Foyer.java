@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import java.util.List;  
+import java.util.ArrayList;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -36,6 +38,10 @@ public class Foyer implements Serializable {
     //@JsonIgnore
     @OneToMany(mappedBy = "foyer", cascade = CascadeType.ALL)
     Set<Bloc> blocs;
+    
+    public List<Bloc> getBlocs() {
+        return new ArrayList<>(blocs);  
+    }
 
 
 

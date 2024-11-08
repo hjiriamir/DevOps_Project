@@ -39,4 +39,11 @@ public class Chambre implements Serializable {
     @OneToMany
     @JsonIgnore
     Set<Reservation> reservations ;
+    public Bloc getBloc() {
+        return bloc;
+    }
+
+    public void setBloc(Bloc bloc) {
+        this.bloc = bloc;
+    }
 }

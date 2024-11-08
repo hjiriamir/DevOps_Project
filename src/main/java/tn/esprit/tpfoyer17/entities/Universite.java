@@ -30,4 +30,7 @@ public class Universite implements Serializable {
     @OneToOne
     @JsonIgnore
     Foyer foyer;
+    public void setFoyer(Foyer foyer) {
+        this.foyer = foyer;
+    }
 }
