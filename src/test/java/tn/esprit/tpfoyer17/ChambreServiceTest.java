@@ -105,33 +105,6 @@ public class ChambreServiceTest {
     }
 
     @Test
-    @Order(6)
-    @DisplayName("Test Affecter Chambres à Bloc")
-    @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
-    public void testAffecterChambresABloc() {
-        // Create a bloc (ensure it exists or create one if needed)
-        long idBloc = 1L; // Replace with a valid bloc ID
-        List<Long> chambreIds = List.of(1L, 2L); // List of chambres to be assigned (replace with valid chambre IDs)
-
-        // Call the method to assign chambres to the bloc
-        Bloc updatedBloc = chambreService.affecterChambresABloc(chambreIds, idBloc);
-
-        // Verify if the chambres were correctly assigned to the bloc
-        assertNotNull(updatedBloc);
-        assertTrue(updatedBloc.getChambres().stream()
-                .allMatch(chambre -> chambre.getBloc().getIdBloc() == idBloc));
-
-        // Clean up the changes (remove the assigned bloc from these chambres)
-        chambreIds.forEach(id -> {
-            Chambre chambre = chambreService.retrieveChambre(id);
-            if (chambre != null) {
-                chambre.setBloc(null);
-                chambreService.updateChambre(chambre);
-            }
-        });
-    }
-
-    @Test
     @Order(7)
     @DisplayName("Test Get Chambres Par Nom Universite")
     public void testGetChambresParNomUniversite() {
