@@ -92,7 +92,25 @@
                     </excludes>
                 </configuration>
             </plugin>
-        
+         <!-- Plugin JaCoCo pour la couverture de code -->
+        <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.7</version> <!-- Utilise la version appropriée -->
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>prepare-agent</goal> <!-- Prépare l'agent JaCoCo -->
+                    </goals>
+                </execution>
+                <execution>
+                    <goals>
+                        <goal>report</goal> <!-- Génère le rapport de couverture -->
+                    </goals>
+                    <phase>prepare-package</phase> <!-- Phase avant le packaging -->
+                </execution>
+            </executions>
+        </plugin>
         </plugins>
     </build>
     <distributionManagement>
