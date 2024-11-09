@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 
-# Expose le port sur lequel votre application écoute
+# Expose le port sur lequel votre application écout
 EXPOSE 8089
 
 # Télécharge le fichier JAR depuis Nexus
