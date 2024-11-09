@@ -5,7 +5,7 @@ services:
     image: hjiria/tpfoyer-17:0.0.1
     container_name: tpfoyer-app
     ports:
-      - "8089:8089"  # Mappe le port 8080 du conteneur au port 8080 de l'hôte
+      - "8089:8089"  # Mappe le port 8080 du conteneur au port 8080 de l'hôt
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/mydb  # URL de la base de données
       - SPRING_DATASOURCE_USERNAME=root
