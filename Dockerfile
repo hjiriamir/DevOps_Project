@@ -1,5 +1,5 @@
 
-ENTRYPOINT ["java", "-jar", "/tp-foyer-1.0.jar"]
+
 # Use the OpenJDK 11 image from Docker Hub
 FROM openjdk:11-jdk-slim
 
