@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE: tpFoyer17
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql 
+
+  app-tpFoyer:
+    depends_on:
+      - mysqldb
+    image: nazihgaraali/tpfoyer:latest
+    restart: on-failure
+    ports:
+      - 8082:8082
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url": "jdbc:mysql://mysqldb:3306/tpFoyer17?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+        "spring.datasource.username": "root",  # Same as the root user in MySQL service
+        "spring.datasource.password": "rootpassword",  # Set password same as MYSQL_ROOT_PASSWORD
+        "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.MySQL5InnoDBDialect",
+        "spring.jpa.hibernate.ddl-auto": "update"
+      }'
+    stdin_open: true
+    tty: true
+
+volumes:
+  db:
+    driver: local
