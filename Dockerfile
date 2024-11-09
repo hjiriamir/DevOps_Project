@@ -1,5 +1,5 @@
-# Use the OpenJDK 11 image from Docker Hub
-FROM openjdk:11-jdk-slim
+# Use the OpenJDK 17 image from Docker Hub
+FROM openjdk:17-jdk-slim
 
 # Expose the port that the Spring Boot application runs on
 EXPOSE 8082
