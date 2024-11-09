@@ -1,3 +1,5 @@
+
+ENTRYPOINT ["java", "-jar", "/tp-foyer-1.0.jar"]
 # Use the OpenJDK 11 image from Docker Hub
 FROM openjdk:11-jdk-slim
 
@@ -8,4 +10,5 @@ EXPOSE 8082
 ADD target/tpFoyer-17-0.0.1-SNAPSHOT.jar tp-foyer.jar
 
 # Define the entrypoint command to run your app
-ENTRYPOINT ["java", "-jar", "/tp-foyer-1.0.jar"]
+ENTRYPOINT ["java", "-jar", "/tp-foyer.jar"]
+
