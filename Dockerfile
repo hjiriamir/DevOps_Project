@@ -1,11 +1,11 @@
-# Utilise l'image OpenJDK 11 depuis Docker Hub
-FROM openjdk:11-jdk-slim
+# Use the OpenJDK 17 image from Docker Hub
+FROM openjdk:17-jdk-slim
 
-# Exposez le port de l'application Spring Boot (ajustez si nécessaire)
+# Expose the port that the Spring Boot application runs on
 EXPOSE 8082
 
-# Ajoutez le fichier JAR généré dans l'image
-ADD target/tpFoyer-17-0.0.1-SNAPSHOT.jar /tp-foyer.jar
+# Add the JAR file to the Docker image
+ADD target/tpFoyer-17-0.0.1-SNAPSHOT.jar tpFoyer-17-0.0.1-SNAPSHOT.jar
 
-# Définissez la commande de lancement pour l'application
-ENTRYPOINT ["java", "-jar", "/tp-foyer.jar"]
+# Set the entry point for the container
+ENTRYPOINT ["java", "-jar", "/tpFoyer-17-0.0.1-SNAPSHOT.jar"]
