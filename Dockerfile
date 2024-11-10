@@ -1,14 +1,11 @@
-
-
-# Use the OpenJDK 11 image from Docker Hub
+# Utilise l'image OpenJDK 11 depuis Docker Hub
 FROM openjdk:11-jdk-slim
 
-# Expose the Spring Boot port (adjust if different)
+# Exposez le port de l'application Spring Boot (ajustez si nécessaire)
 EXPOSE 8082
 
-# Add your application JAR to the image
-ADD target/tp-foyer-1.0.jar tp-foyer.jar
+# Ajoutez le fichier JAR généré dans l'image
+ADD target/tpFoyer-17-0.0.1-SNAPSHOT.jar /tp-foyer.jar
 
-# Define the entrypoint command to run your app
+# Définissez la commande de lancement pour l'application
 ENTRYPOINT ["java", "-jar", "/tp-foyer.jar"]
-
