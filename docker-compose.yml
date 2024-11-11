@@ -1,14 +1,13 @@
 version: "3.8"
 
 services:
-  anguangular:
-    build:
-      context: ./angular
+  appfront:
+    build: .
+    image: majdi01/tp-foyerfront:1.0.0
+    restart: on-failure
+    container_name: frontcont
     ports:
-      - "80:80"
-    restart: unless-stopped
-    networks:
-      - custom_network
+      - 4200:4200
   mysqldb:
     image: mysql:5.7
     restart: unless-stopped
