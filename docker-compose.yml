@@ -21,7 +21,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: mydb  # Base de données par défaut
-      MYSQL_USER: mysql  # Ajout de l'utilisateur
+      MYSQL_USER: root  # Ajout de l'utilisateur
       MYSQL_PASSWORD: root  # Ajout du mot de passe pour l'utilisateur
     ports:
       - "3306:3306"  # Expose le port MySQL
