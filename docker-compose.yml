@@ -16,7 +16,7 @@ services:
       - app_data:/app/data
 
   db:
-    image: mysql:8
+    image: mysql:5.7
     container_name: tpfoyer-db
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -27,6 +27,11 @@ services:
       - "3306:3306"  # Expose le port MySQL
     volumes:
       - db_data:/var/lib/mysql  # Persistance des données
+    entrypoint: >
+      /bin/bash -c "if [ ! -d /var/lib/mysql/mysql ]; then
+        echo 'Initialisation de la base de données';
+        mysql_install_db --user=mysql --ldata=/var/lib/mysql;
+      fi && exec docker-entrypoint.sh mysqld"
 
 volumes:
   db_data:
