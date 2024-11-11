@@ -1,6 +1,12 @@
 version: "3.8"
 
 services:
+  angular:
+    build:
+      context: ./angular 
+    ports:
+      - "80:80"
+    restart: unless-stopped
   mysqldb:
     image: mysql:5.7
     restart: unless-stopped
