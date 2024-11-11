@@ -1,12 +1,14 @@
 version: "3.8"
 
 services:
-  angular:
+  anguangular:
     build:
-      context: ./angular 
+      context: ./angular
     ports:
       - "80:80"
     restart: unless-stopped
+    networks:
+      - custom_network
   mysqldb:
     image: mysql:5.7
     restart: unless-stopped
