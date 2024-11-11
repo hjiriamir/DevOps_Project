@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-alpine
+FROM openjdk:8-jdk-alpine
 
 # Expose le port sur lequel votre application écout
 EXPOSE 8089
