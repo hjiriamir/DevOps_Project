@@ -32,6 +32,7 @@ public class Etudiant implements Serializable {
 
     Date dateNaissance;
 
+
     @ToString.Exclude
     @ManyToMany(mappedBy = "etudiants")
     @JsonIgnore

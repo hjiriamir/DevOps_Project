@@ -10,6 +10,7 @@ import tn.esprit.tpfoyer17.repositories.EtudiantRepository;
 import tn.esprit.tpfoyer17.services.interfaces.IEtudiantService;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -50,4 +51,23 @@ public class EtudiantService implements IEtudiantService {
         System.out.println((LocalDate.now()).getYear());
         return etudiantRepository.findByReservationsAnneeUniversitaire(LocalDate.now());
     }
+    public List<Etudiant> findByDateNaissanceBetween(Date startDate, Date endDate) {
+        return etudiantRepository.findByDateNaissanceBetween(startDate, endDate);
+    }
+    public Etudiant updateEtudiantByCin(long cinEtudiant, Etudiant updatedEtudiant) {
+        Etudiant existingEtudiant = etudiantRepository.findByCinEtudiant(cinEtudiant);
+        if (existingEtudiant != null) {
+            existingEtudiant.setNomEtudiant(updatedEtudiant.getNomEtudiant());
+            existingEtudiant.setPrenomEtudiant(updatedEtudiant.getPrenomEtudiant());
+            existingEtudiant.setDateNaissance(updatedEtudiant.getDateNaissance());
+            // Set other fields as needed
+            return etudiantRepository.save(existingEtudiant);
+        }
+        return null;
+    }
+
+
+
+
+
 }
