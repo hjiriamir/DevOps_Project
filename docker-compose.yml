@@ -2,11 +2,12 @@ version: "3.8"
 
 services:
   appfront:
+    build:
+      context: ./angular  # Chemin vers le répertoire de votre application Angular
     image: majdi01/tp-foyerfront:1.0.0
     restart: on-failure
-    container_name: frontcont
     ports:
-      - 4200:80  # Exposez le port 80 du conteneur sur le port 4200 de l'hôte
+      - "4200:80"  # Expose le port 80 du conteneur sur le port 4200 de l'hôte
   mysqldb:
     image: mysql:5.7
     restart: unless-stopped
