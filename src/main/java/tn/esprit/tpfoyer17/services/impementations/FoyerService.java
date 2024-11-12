@@ -41,7 +41,7 @@ public class FoyerService implements IFoyerService {
 
     @Override
     public Foyer retrieveFoyer(long idFoyer) {
-        return foyerRepository.findById(idFoyer).orElse(null);
+        return foyerRepository.findById(idFoyer).orElseThrow(() -> new EntityNotFoundException("Foyer not found with ID: " + idFoyer);
     }
 
     @Override
