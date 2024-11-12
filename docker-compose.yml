@@ -3,7 +3,6 @@ version: "3.8"
 services:
   appfront:
     build:
-      context: ./angular  # Assurez-vous que cela pointe vers le bon répertoire
     image: majdi01/tp-foyerfront:1.0.0
     restart: on-failure
     container_name: frontcont
