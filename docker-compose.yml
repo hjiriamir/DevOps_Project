@@ -2,7 +2,6 @@ version: "3.8"
 
 services:
   appfront:
-    build:
     image: majdi01/tp-foyerfront:1.0.0
     restart: on-failure
     container_name: frontcont
