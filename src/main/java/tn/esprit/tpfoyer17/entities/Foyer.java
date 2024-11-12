@@ -58,7 +58,7 @@ public class Foyer implements Serializable {
     @ToString.Exclude
     //@JsonIgnore
     @OneToMany(mappedBy = "foyer", cascade = CascadeType.ALL)
-    Set<Bloc> blocs;
+    private Set<Bloc> blocs;
     
     public List<Bloc> getBlocs() {
         return new ArrayList<>(blocs);  

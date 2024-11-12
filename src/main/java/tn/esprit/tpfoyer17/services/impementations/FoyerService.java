@@ -52,7 +52,7 @@ public class FoyerService implements IFoyerService {
 
     @Transactional
     public Foyer ajouterFoyerEtAffecterAUniversite(Foyer foyer, long idUniversite) {
-        Universite universite = universiteRepository.findById(idUniversite).orElse(null);
+        var universite = universiteRepository.findById(idUniversite).orElse(null);
 foyerRepository.save(foyer);
 for(Bloc bloc : foyer.getBlocs())
 {
