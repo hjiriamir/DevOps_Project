@@ -1,7 +1,7 @@
 FROM openjdk:17-jdk-alpine
 
 # Expose le port sur lequel votre application écout
-EXPOSE 8089
+EXPOSE 8082
 
 # Étape 2: Installez curl dans l'image Alpine
 RUN apk add --no-cache curl
