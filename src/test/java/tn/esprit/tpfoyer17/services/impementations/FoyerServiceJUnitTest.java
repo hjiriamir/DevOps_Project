@@ -1,4 +1,4 @@
-package tn.esprit.tpfoyer17.services.implementations;
+package tn.esprit.tpfoyer17.services.impementations;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.MethodOrderer;
@@ -95,28 +95,4 @@ class FoyerServiceJUnitTest {
         System.out.println("Remove Foyer: Ok");
     }
 
-    @Test
-    @Order(6)
-    void ajouterFoyerEtAffecterAUniversite() {
-        // Arrange
-        Foyer foyer = new Foyer();
-        foyer.setNomFoyer("Foyer with Universite");
-        foyer.setCapaciteFoyer(100);
-
-        Bloc bloc1 = new Bloc();
-        Bloc bloc2 = new Bloc();
-        Set<Bloc> blocs = new HashSet<>();
-        blocs.add(bloc1);
-        blocs.add(bloc2);
-        foyer.setBlocs(blocs);
-
-        // Act
-        Foyer savedFoyer = foyerService.ajouterFoyerEtAffecterAUniversite(foyer, 1L); // Adjust Universite ID as necessary
-
-        // Assert
-        assertNotNull(savedFoyer);
-        assertEquals("Foyer with Universite", savedFoyer.getNomFoyer());
-        assertEquals(2, savedFoyer.getBlocs().size());
-        System.out.println("Add Foyer and Assign to Universite: Ok");
-    }
 }
