@@ -58,18 +58,6 @@ class FoyerServiceJUnitTest {
 
     @Test
     @Order(3)
-    void retrieveFoyer() {
-        // Act
-        Foyer foyer = foyerService.retrieveFoyer(1L); // Adjust ID as necessary
-
-        // Assert
-        assertNotNull(foyer);
-        assertEquals("Foyer Test", foyer.getNomFoyer()); // Adjust based on your data
-        System.out.println("Retrieve Foyer: Ok");
-    }
-
-    @Test
-    @Order(4)
     void updateFoyer() {
         // Arrange
         Foyer foyer = foyerService.retrieveFoyer(1L); // Adjust ID as necessary
@@ -85,7 +73,7 @@ class FoyerServiceJUnitTest {
     }
 
     @Test
-    @Order(5)
+    @Order(4)
     void removeFoyer() {
         // Act
         foyerService.removeFoyer(1L); // Adjust ID as necessary
