@@ -1,39 +1,35 @@
 version: '3.8'
 
 services:
-  mmysql:
-    image: mysql
+  db:
+    image: mysql:5.7
     container_name: tpfoyer-db
-    restart: always
+    restart: unless-stopped
+
+    ports:
+        - "3306:3306"  # Expose le port MySQL
     volumes:
-      - ./db:/var/lib/mysql
-      
+          - mysql_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: tpFoyer17
-      MYSQL_USER: amir
-      MYSQL_PASSWORD: amir1234
+      MYSQL_DATABASE: root  # Base de données par défaut
 
-    ports:
-      - "3306:3306"
     networks:
-      - spring_mysql
-
-  spring-boot-app:
+      - mynetwork
+    # Persistance des données
+  springboot:
+    image: hjiria/tpfoer-17:latest
     container_name: tpfoyer-app
-    build: ./tpFoyer
-    restart: always
+    restart: on-failure
     ports:
-      - "8080:8080"
+      - "8082:8082"
     depends_on:
-      - mmysql
-    environment:
-      MYSQL_HOST: mmysql
-      MYSQL_USER: amir
-      MYSQL_PASSWORD: amir1234
-      MYSQL_PORT: 3306
+      - db
     networks:
-      - spring_mysql
+        - mynetwork
+volumes:
+  mysql_data:
+
 networks:
-  spring_mysql:
+  mynetwork:
     driver: bridge
