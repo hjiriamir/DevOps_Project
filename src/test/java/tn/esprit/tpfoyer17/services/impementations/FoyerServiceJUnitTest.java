@@ -66,7 +66,7 @@ class FoyerServiceJUnitTest {
         // Act
         Foyer updatedFoyer = foyerService.updateFoyer(foyer);
 
-        // Assert
+        // Asserts
         assertNotNull(updatedFoyer);
         assertEquals("Updated Foyer", updatedFoyer.getNomFoyer());
         System.out.println("Update Foyer: Ok");
