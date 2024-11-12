@@ -20,6 +20,7 @@ public class FoyerController {
     public List<Foyer> retrieveAllFoyers() {
         return foyerService.retrieveAllFoyers();
     }
+    //hii
 @PostMapping("/addFoyer")
     public Foyer addFoyer(@RequestBody Foyer f) {
         return foyerService.addFoyer(f);
