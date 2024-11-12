@@ -24,10 +24,30 @@ public class Foyer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     long idFoyer;
+    public long getIdBloc() {
+        return idFoyer;
+    }
 
+    public void setIdBloc(long idBloc) {
+        this.idFoyer = idBloc;
+    }
     String nomFoyer;
+    public String getNomBloc() {
+        return nomFoyer;
+    }
+
+    public void setNomBloc(String nomFoyer) {
+        this.nomFoyer = nomFoyer;
+    }
 
     long capaciteFoyer;
+    public long getCapaciteBloc() {
+        return capaciteFoyer;
+    }
+
+    public void setCapaciteBloc(long capaciteFoyer) {
+        this.capaciteFoyer = capaciteFoyer;
+    }
 
     @ToString.Exclude
     @JsonIgnore

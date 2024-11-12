@@ -1,32 +1,39 @@
 version: '3.8'
 
 services:
-  app:
-    image: hjiria/tpfoyer-17:0.0.1
-    container_name: tpfoyer-app
-    ports:
-      - "8089:8089"  # Mappe le port 8089 du conteneur au port 8089 de l'hôte
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/mydb  # URL de la base de données
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
-    depends_on:
-      - db  # Assurez-vous que le conteneur db est démarré avant
-    volumes:  # Corrigé l'indentation ici
-      - app_data:/app/data
-
-  db:
-    image: mysql:5.7
+  mmysql:
+    image: mysql
     container_name: tpfoyer-db
+    restart: always
+    volumes:
+      - ./db:/var/lib/mysql
+      
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: mydb  # Base de données par défaut
-    ports:
-      - "3306:3306"  # Expose le port MySQL
-    volumes:
-      - db_data:/var/lib/mysql  # Persistance des données
+      MYSQL_DATABASE: tpFoyer17
+      MYSQL_USER: amir
+      MYSQL_PASSWORD: amir1234
 
-volumes:
-  db_data:
-    driver: local
-  app_data: {}  # Ajouté pour définir le volume app_data
+    ports:
+      - "3308:3306"
+    networks:
+      - spring_mysql
+
+  spring-boot-app:
+    container_name: tpfoyer-app
+    build: ./tpFoyer
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mmysql
+    environment:
+      MYSQL_HOST: mmysql
+      MYSQL_USER: amir
+      MYSQL_PASSWORD: amir1234
+      MYSQL_PORT: 3306
+    networks:
+      - spring_mysql
+networks:
+  spring_mysql:
+    driver: bridge
