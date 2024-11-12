@@ -2,8 +2,6 @@ version: "3.8"
 
 services:
   appfront:
-    build:
-      context: ./  # Chemin vers le répertoire de votre application Angular
     image: majdi01/tp-foyerfront:1.0.0
     restart: on-failure
     ports:
