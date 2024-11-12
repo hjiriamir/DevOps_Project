@@ -2,12 +2,13 @@ version: "3.8"
 
 services:
   appfront:
-    build: .
+    build:
+      context: ./angular  # Assurez-vous que cela pointe vers le bon répertoire
     image: majdi01/tp-foyerfront:1.0.0
     restart: on-failure
     container_name: frontcont
     ports:
-      - 4200:4200
+      - 4200:80  # Exposez le port 80 du conteneur sur le port 4200 de l'hôte
   mysqldb:
     image: mysql:5.7
     restart: unless-stopped
@@ -31,7 +32,7 @@ services:
           "spring.datasource.url": "jdbc:mysql://mysqldb:3306/tpFoyer17?&createDatabaseIfNotExist=true",
           "spring.datasource.username": "root",
           "spring.datasource.password": "root",
-        "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.MySQLDialect",
+          "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.MySQLDialect",
           "spring.jpa.hibernate.ddl-auto": "update"
         }'
     stdin_open: true
