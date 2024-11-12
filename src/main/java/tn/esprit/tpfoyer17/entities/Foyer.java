@@ -44,6 +44,7 @@ public class Foyer implements Serializable {
     public long getCapaciteBloc() {
         return capaciteFoyer;
     }
+    //v
 
     public void setCapaciteBloc(long capaciteFoyer) {
         this.capaciteFoyer = capaciteFoyer;
