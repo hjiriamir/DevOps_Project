@@ -1,0 +1,25 @@
+  spring-foyerr:
+    image: haithemlahdhiri/tpfoyer_backend_image
+    ports:
+      - "8082:8082"
+    networks:
+      - foyerh
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb/tpFoyer17
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8.0.29
+    volumes:
+      -  /home/mysql/haithemdata:/var/lib/mysql:rw
+    networks:
+      - foyerh
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=tpFoyer17
+
+networks:
+  foyerh:
