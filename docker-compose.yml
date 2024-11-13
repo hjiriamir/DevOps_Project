@@ -3,9 +3,9 @@ version: "3.8"
 services:
   appfront:
     build: .
-    image: majdi01/foyerfront
+    image: majdi01/foyerfrontt
     restart: on-failure
-    container_name: frontcont
+    container_name: frontcontt
     ports:
       - 4200:4200
   mysqldb:
