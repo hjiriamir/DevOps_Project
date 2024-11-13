@@ -1,35 +1,29 @@
-version: '3.8'
-
+version: "3"
 services:
-  db:
-    image: mysql:5.7
-    container_name: tpfoyer-db
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:latest
     restart: unless-stopped
-
     ports:
-        - "3306:3306"  # Expose le port MySQL
-    volumes:
-          - mysql_data:/var/lib/mysql
+      - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: root  # Base de données par défaut
+      - MYSQL_USER:root
+      - MYSQL_PASSWORD:root
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=tpFoyer17
+    volumes:
+      - db_vol:/var/lib/mysqldb
 
-    networks:
-      - mynetwork
-    # Persistance des données
-  springboot:
-    image: hjiria/tpfoer-17:latest
-    container_name: tpfoyer-app
-    restart: on-failure
+
+  foyer_app:
+    build: ./
+    image: houssem
+    restart: unless-stopped
     ports:
-      - "8082:8082"
+      - 8082:8082
     depends_on:
-      - db
-    networks:
-        - mynetwork
-volumes:
-  mysql_data:
+      - mysqldb
 
-networks:
-  mynetwork:
-    driver: bridge
+
+volumes:
+  db_vol:

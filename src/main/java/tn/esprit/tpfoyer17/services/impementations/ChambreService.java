@@ -14,9 +14,6 @@ import tn.esprit.tpfoyer17.repositories.BlocRepository;
 import tn.esprit.tpfoyer17.repositories.ChambreRepository;
 import tn.esprit.tpfoyer17.repositories.UniversiteRepository;
 import tn.esprit.tpfoyer17.services.interfaces.IChambreService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 
 import java.util.List;
 
@@ -28,8 +25,6 @@ public class ChambreService implements IChambreService {
     ChambreRepository chambreRepository;
     BlocRepository blocRepository;
     UniversiteRepository universiteRepository;
-    
-    private static final Logger log = LoggerFactory.getLogger(Chambre.class);
 
     @Override
     public List<Chambre> retrieveAllChambres() {
@@ -57,17 +52,17 @@ public class ChambreService implements IChambreService {
     }
 
     @Override
-	    public Bloc affecterChambresABloc(List<Long> numChambre, long idBloc) {
-	       Bloc bloc = blocRepository.findById(idBloc).orElse(null);
-	       //List<Chambre> chambreList = (List<Chambre>) chambreRepository.findAllById(numChambre);
-	       List<Chambre> chambreList =  chambreRepository.findByNumeroChambreIn(numChambre);
-	
-	       for(Chambre chambre: chambreList) {
-	           chambre.setBloc(bloc);
-	           chambreRepository.save(chambre);
-	       }
-	        return bloc;
-	    }
+    public Bloc affecterChambresABloc(List<Long> numChambre, long idBloc) {
+       Bloc bloc = blocRepository.findById(idBloc).orElse(null);
+       //List<Chambre> chambreList = (List<Chambre>) chambreRepository.findAllById(numChambre);
+       List<Chambre> chambreList =  chambreRepository.findByNumeroChambreIn(numChambre);
+
+       for(Chambre chambre: chambreList) {
+           chambre.setBloc(bloc);
+           chambreRepository.save(chambre);
+       }
+        return bloc;
+    }
 
     @Override
     public List<Chambre> getChambresParNomUniversite(String nomUniversite) {

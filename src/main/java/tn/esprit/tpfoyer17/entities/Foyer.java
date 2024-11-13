@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import java.util.List;  
-import java.util.ArrayList;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -24,31 +22,10 @@ public class Foyer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     long idFoyer;
-    public long getIdBloc() {
-        return idFoyer;
-    }
 
-    public void setIdBloc(long idBloc) {
-        this.idFoyer = idBloc;
-    }
     String nomFoyer;
-    public String getNomBloc() {
-        return nomFoyer;
-    }
-
-    public void setNomBloc(String nomFoyer) {
-        this.nomFoyer = nomFoyer;
-    }
 
     long capaciteFoyer;
-    public long getCapaciteBloc() {
-        return capaciteFoyer;
-    }
-    //v
-
-    public void setCapaciteBloc(long capaciteFoyer) {
-        this.capaciteFoyer = capaciteFoyer;
-    }
 
     @ToString.Exclude
     @JsonIgnore
@@ -59,10 +36,6 @@ public class Foyer implements Serializable {
     //@JsonIgnore
     @OneToMany(mappedBy = "foyer", cascade = CascadeType.ALL)
     Set<Bloc> blocs;
-    
-    public List<Bloc> getBlocs() {
-        return new ArrayList<>(blocs);  
-    }
 
 
 
