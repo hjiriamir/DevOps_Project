@@ -72,7 +72,7 @@ class FoyerServiceJUnitTest {
         // Act
         foyerService.removeFoyer(1L); // Replace with the actual ID of the foyer to delete
 
-        // Asserts
+        // Assert
         assertThrows(EntityNotFoundException.class, () -> foyerService.retrieveFoyer(1L));
         System.out.println("Remove Foyer: Ok");
     }
