@@ -1,9 +1,9 @@
 services:
   appfront:
     build: .
-    image: ghribiachref/Achrefghribi-5SE2foyerfront
+    image: ghribiachref/achrefghribi-5se2foyerfront
     restart: on-failure
-    container_name: Achrefghribi-5SE2foyerfront
+    container_name: achrefghribi-5se2foyerfront
     ports:
       - 4200:4200
   mysqldb:
