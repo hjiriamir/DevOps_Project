@@ -1,4 +1,11 @@
 services:
+  appfront:
+    build: .
+    image: ghribiachref/foyerfront
+    restart: on-failure
+    container_name: frontcont
+    ports:
+      - 4200:4200
   mysqldb:
     image: mysql:5.7
     restart: unless-stopped
