@@ -5,8 +5,7 @@ import tn.esprit.tpfoyer17.entities.Bloc;
 import tn.esprit.tpfoyer17.entities.Universite;
 import tn.esprit.tpfoyer17.services.impementations.ChambreService;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -65,6 +64,23 @@ class ChambreServiceMockTest {
                 .nomUniversite("Université X")
                 .build();
     }
+
+    @Test
+    @DisplayName("Test Chambre No-Argument Constructor")
+    void testNoArgsConstructor() {
+        // Instantiate Chambre using the no-argument constructor
+        Chambre chambre = new Chambre();
+
+        // Verify that default values are assigned (if any)
+        assertNotNull(chambre);
+        assertNull(chambre.getBloc());
+        assertNull(chambre.getReservations());
+        assertEquals(0, chambre.getIdChambre());
+        assertEquals(0, chambre.getNumeroChambre());
+
+        // Further assertions or interactions can be added if necessary
+    }
+
 
     @Test
     @DisplayName("Test Retrieve All Chambres")
