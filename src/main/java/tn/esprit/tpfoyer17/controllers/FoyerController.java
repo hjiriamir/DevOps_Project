@@ -15,6 +15,7 @@ import java.util.List;
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @RequestMapping("api/foyers")
+@CrossOrigin(origins = "http://192.168.33.10")
 public class FoyerController {
     @GetMapping("/retrieveAllFoyers")
     public List<Foyer> retrieveAllFoyers() {
