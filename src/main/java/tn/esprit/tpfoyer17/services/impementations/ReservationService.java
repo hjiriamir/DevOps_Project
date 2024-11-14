@@ -24,7 +24,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public abstract class ReservationService implements IReservationService {
+public class ReservationService implements IReservationService {
     ReservationRepository reservationRepository;
     EtudiantRepository etudiantRepository;
     ChambreRepository chambreRepository;
