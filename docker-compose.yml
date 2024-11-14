@@ -3,30 +3,33 @@ version: '3.8'
 services:
   db:
     image: mysql:5.7
-    container_name: tpfoyer-db
+    container_name: database
     restart: unless-stopped
-
     ports:
-        - "3306:3306"  # Expose le port MySQL
+      - "3306:3306"  # Expose le port MySQL
     volumes:
-          - mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: root  # Base de données par défaut
-
+      MYSQL_DATABASE: tpFoyer17  # Correspond à la base de données dans application.properties
     networks:
       - mynetwork
-    # Persistance des données
-  springboot:
-    image: hjiria/tpfoer-17:latest
-    container_name: tpfoyer-app
+
+  backend:
+    image: hjiriamir/tpfoer-17:latest
+    container_name: backend
     restart: on-failure
     ports:
-      - "8082:8082"
+      - "8082:8082"  # Utiliser le port défini dans application.properties
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/tpFoyer17?&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       - db
     networks:
-        - mynetwork
+      - mynetwork
+
 volumes:
   mysql_data:
 
