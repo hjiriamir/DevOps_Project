@@ -4,8 +4,20 @@ FROM openjdk:17-jdk-slim
 # Expose the port that the Spring Boot application runs on
 EXPOSE 8082
 
-# Add the JAR file to the Docker image
-ADD target/tpFoyer-17-0.0.1-SNAPSHOT.jar tpFoyer-17-0.0.1-SNAPSHOT.jar
+# Define build arguments for Nexus credentials and artifact details
+ARG NEXUS_URL
+ARG NEXUS_REPO
+ARG GROUP_ID
+ARG ARTIFACT_ID
+ARG VERSION
+ARG NEXUS_USERNAME
+ARG NEXUS_PASSWORD
+
+# Create a directory for the application
+WORKDIR /app
+
+# Download the JAR from Nexus
+RUN curl -u $NEXUS_USERNAME:$NEXUS_PASSWORD -o app.jar "$NEXUS_URL/repository/$NEXUS_REPO/$(echo $GROUP_ID | tr '.' '/')/$ARTIFACT_ID/$VERSION/$ARTIFACT_ID-$VERSION.jar"
 
 # Set the entry point for the container
-ENTRYPOINT ["java", "-jar", "/tpFoyer-17-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]

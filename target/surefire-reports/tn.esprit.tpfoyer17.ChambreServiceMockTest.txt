@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tn.esprit.tpfoyer17.ChambreServiceMockTest
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.828 s - in tn.esprit.tpfoyer17.ChambreServiceMockTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.462 s - in tn.esprit.tpfoyer17.ChambreServiceMockTest

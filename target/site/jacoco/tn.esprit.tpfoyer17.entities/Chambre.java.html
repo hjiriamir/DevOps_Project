@@ -7,37 +7,36 @@ import lombok.experimental.FieldDefaults;
 import tn.esprit.tpfoyer17.entities.enumerations.TypeChambre;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Getter
-<span class="pc" id="L15">@Setter</span>
-<span class="fc" id="L16">@AllArgsConstructor</span>
-<span class="nc" id="L17">@NoArgsConstructor</span>
-<span class="pc" id="L18">@Builder</span>
-<span class="fc" id="L19">@ToString</span>
+<span class="pc" id="L14">@Setter</span>
+<span class="fc" id="L15">@AllArgsConstructor</span>
+<span class="fc" id="L16">@NoArgsConstructor</span>
+<span class="pc" id="L17">@Builder</span>
+<span class="fc" id="L18">@ToString</span>
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Chambre implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
-<span class="fc" id="L26">    long idChambre;</span>
+<span class="fc" id="L25">    long idChambre;</span>
 
-<span class="fc" id="L28">    long numeroChambre;</span>
+<span class="fc" id="L27">    long numeroChambre;</span>
 
     @Enumerated(EnumType.STRING)
-<span class="fc" id="L31">    TypeChambre typeChambre;</span>
+<span class="fc" id="L30">    TypeChambre typeChambre;</span>
 
     @ToString.Exclude
     @ManyToOne
     @JsonIgnore
-<span class="nc" id="L36">    Bloc bloc;</span>
+<span class="fc" id="L35">    Bloc bloc;</span>
 
     @ToString.Exclude
     @OneToMany
     @JsonIgnore
-<span class="nc" id="L41">    Set&lt;Reservation&gt; reservations ;</span>
+<span class="fc" id="L40">    private Set&lt;Reservation&gt; reservations ;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

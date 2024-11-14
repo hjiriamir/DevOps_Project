@@ -54,34 +54,33 @@ public class ChambreService implements IChambreService {
     @Override
     public Bloc affecterChambresABloc(List&lt;Long&gt; numChambre, long idBloc) {
 <span class="fc" id="L56">       Bloc bloc = blocRepository.findById(idBloc).orElse(null);</span>
-       //List&lt;Chambre&gt; chambreList = (List&lt;Chambre&gt;) chambreRepository.findAllById(numChambre);
-<span class="fc" id="L58">       List&lt;Chambre&gt; chambreList =  chambreRepository.findByNumeroChambreIn(numChambre);</span>
+<span class="fc" id="L57">       List&lt;Chambre&gt; chambreList =  chambreRepository.findByNumeroChambreIn(numChambre);</span>
 
-<span class="fc bfc" id="L60" title="All 2 branches covered.">       for(Chambre chambre: chambreList) {</span>
-<span class="fc" id="L61">           chambre.setBloc(bloc);</span>
-<span class="fc" id="L62">           chambreRepository.save(chambre);</span>
-<span class="fc" id="L63">       }</span>
-<span class="fc" id="L64">        return bloc;</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">       for(Chambre chambre: chambreList) {</span>
+<span class="fc" id="L60">           chambre.setBloc(bloc);</span>
+<span class="fc" id="L61">           chambreRepository.save(chambre);</span>
+<span class="fc" id="L62">       }</span>
+<span class="fc" id="L63">        return bloc;</span>
     }
 
     @Override
     public List&lt;Chambre&gt; getChambresParNomUniversite(String nomUniversite) {
-<span class="fc" id="L69">        return chambreRepository.findByBlocFoyerUniversiteNomUniversiteLike(nomUniversite);</span>
+<span class="fc" id="L68">        return chambreRepository.findByBlocFoyerUniversiteNomUniversiteLike(nomUniversite);</span>
     }
 
     @Override
     public List&lt;Chambre&gt; getChambresParBlocEtType(long idBloc, TypeChambre typeC) {
-<span class="fc" id="L74">        return chambreRepository.findByBlocIdBlocAndTypeChambre(idBloc,typeC);</span>
+<span class="fc" id="L73">        return chambreRepository.findByBlocIdBlocAndTypeChambre(idBloc,typeC);</span>
     }
 
     @Override
     public List&lt;Chambre&gt; getChambresParBlocEtTypeJPQL(long idBloc, TypeChambre typeC) {
-<span class="fc" id="L79">        return chambreRepository.recupererParBlocEtTypeChambre(idBloc, typeC);</span>
+<span class="fc" id="L78">        return chambreRepository.recupererParBlocEtTypeChambre(idBloc, typeC);</span>
     }
 
     @Override
     public List&lt;Chambre&gt; getChambresNonReserveParNomUniversiteEtTypeChambre(String nomUniversite, TypeChambre type) {
-<span class="fc" id="L84">        return chambreRepository.getChambresNonReserveParNomUniversiteEtTypeChambre(nomUniversite,type);</span>
+<span class="fc" id="L83">        return chambreRepository.getChambresNonReserveParNomUniversiteEtTypeChambre(nomUniversite,type);</span>
     }
 
     @Scheduled(cron = &quot;*/10 * * * * *&quot; )
@@ -89,10 +88,10 @@ public class ChambreService implements IChambreService {
     @Override
     public void getChambresNonReserve() {
 
-<span class="fc bfc" id="L92" title="All 2 branches covered.">        for (Chambre chambre : chambreRepository.getChambresNonReserve())</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">        for (Chambre chambre : chambreRepository.getChambresNonReserve())</span>
         {
-<span class="fc" id="L94">            log.info(chambre.toString());</span>
-<span class="fc" id="L95">        }</span>
-<span class="fc" id="L96">    }</span>
+<span class="fc" id="L93">            log.info(chambre.toString());</span>
+<span class="fc" id="L94">        }</span>
+<span class="fc" id="L95">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
