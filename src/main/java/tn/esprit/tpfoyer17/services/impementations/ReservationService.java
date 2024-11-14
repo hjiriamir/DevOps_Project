@@ -40,7 +40,7 @@ public class ReservationService implements IReservationService {
         return reservationRepository.save(res);
     }
 
-   /* @Override
+    @Override
     public Reservation retrieveReservation(String idReservation) {
         return reservationRepository.findById(idReservation).orElse(null);
 
@@ -136,5 +136,5 @@ public class ReservationService implements IReservationService {
                 return false;
             }
         }
-    }*/
+    }
 }
