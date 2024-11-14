@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@CrossOrigin("*")
 @RequestMapping("api/univeristes")
 public class UniversiteController {
     @GetMapping("/retrieveAllUniversities")
