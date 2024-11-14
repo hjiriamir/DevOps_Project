@@ -1,5 +1,5 @@
 # Utilisation de l'image OpenJDK 8 au lieu de OpenJDK 17
-FROM openjdk:8-jdk-alpine
+FROM openjdk:21-jdk-alpine
 
 # Expose le port sur lequel votre application écoute
 EXPOSE 8082
