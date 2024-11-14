@@ -27,7 +27,7 @@ import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 
-public class ChambreServiceMockTest {
+class ChambreServiceMockTest {
 
     @Mock
     private ChambreRepository chambreRepository;
@@ -68,7 +68,7 @@ public class ChambreServiceMockTest {
 
     @Test
     @DisplayName("Test Retrieve All Chambres")
-    public void testRetrieveAllChambres() {
+     void testRetrieveAllChambres() {
         // Mock the repository to return a list of chambres
         List<Chambre> chambres = new ArrayList<>();
         chambres.add(sampleChambre);
@@ -88,7 +88,7 @@ public class ChambreServiceMockTest {
 
     @Test
     @DisplayName("Test Add Chambre")
-    public void testAddChambre() {
+     void testAddChambre() {
         // Mock the repository to return the chambre when saved
         when(chambreRepository.save(any(Chambre.class))).thenReturn(sampleChambre);
 
@@ -105,7 +105,7 @@ public class ChambreServiceMockTest {
 
     @Test
     @DisplayName("Test Update Chambre")
-    public void testUpdateChambre() {
+     void testUpdateChambre() {
         // Mock the repository to return the chambre when saved
         when(chambreRepository.save(any(Chambre.class))).thenReturn(sampleChambre);
 
@@ -122,7 +122,7 @@ public class ChambreServiceMockTest {
 
     @Test
     @DisplayName("Test Retrieve Chambre By ID")
-    public void testRetrieveChambre() {
+     void testRetrieveChambre() {
         // Mock the repository to return an Optional of Chambre
         when(chambreRepository.findById(sampleChambre.getIdChambre())).thenReturn(Optional.of(sampleChambre));
 
@@ -139,7 +139,7 @@ public class ChambreServiceMockTest {
 
     @Test
     @DisplayName("Test Find By Type Chambre")
-    public void testFindByTypeChambre() {
+     void testFindByTypeChambre() {
         // Mock the repository to return a list of chambres
         List<Chambre> chambres = new ArrayList<>();
         chambres.add(sampleChambre);
@@ -163,7 +163,7 @@ public class ChambreServiceMockTest {
 
     @Test
     @DisplayName("Test Affecter Chambres A Bloc")
-    public void testAffecterChambresABloc() {
+     void testAffecterChambresABloc() {
         // Mock the repository calls
         List<Long> chambreIds = new ArrayList<>();
         chambreIds.add(sampleChambre.getIdChambre());
@@ -184,7 +184,7 @@ public class ChambreServiceMockTest {
 
     @Test
     @DisplayName("Test Get Chambres Par Nom Universite")
-    public void testGetChambresParNomUniversite() {
+     void testGetChambresParNomUniversite() {
         // Mock the repository to return a list of chambres
         List<Chambre> chambres = new ArrayList<>();
         chambres.add(sampleChambre);
@@ -202,7 +202,7 @@ public class ChambreServiceMockTest {
 
     @Test
     @DisplayName("Test Get Chambres Par Bloc Et Type")
-    public void testGetChambresParBlocEtType() {
+     void testGetChambresParBlocEtType() {
         // Mock the repository to return a list of chambres
         List<Chambre> chambres = new ArrayList<>();
         chambres.add(sampleChambre);
@@ -220,7 +220,7 @@ public class ChambreServiceMockTest {
 
     @Test
     @DisplayName("Test Get Chambres Par Bloc Et Type JPQL")
-    public void testGetChambresParBlocEtTypeJPQL() {
+     void testGetChambresParBlocEtTypeJPQL() {
         // Mock the repository to return a list of chambres
         List<Chambre> chambres = new ArrayList<>();
         chambres.add(sampleChambre);
@@ -238,7 +238,7 @@ public class ChambreServiceMockTest {
 
     @Test
     @DisplayName("Test Get Chambres Non Reserve Par Nom Universite Et Type Chambre")
-    public void testGetChambresNonReserveParNomUniversiteEtTypeChambre() {
+     void testGetChambresNonReserveParNomUniversiteEtTypeChambre() {
         // Mock the repository to return a list of non-reserved chambres
         List<Chambre> chambresNonReserve = new ArrayList<>();
         chambresNonReserve.add(sampleChambre);
@@ -257,7 +257,7 @@ public class ChambreServiceMockTest {
 
     @Test
     @DisplayName("Test Get Chambres Non Reserve")
-    public void testGetChambresNonReserve() {
+     void testGetChambresNonReserve() {
         // Mock the repository to return a list of non-reserved chambres
         List<Chambre> chambresNonReserve = new ArrayList<>();
         chambresNonReserve.add(sampleChambre);
