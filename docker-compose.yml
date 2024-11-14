@@ -16,7 +16,7 @@ services:
       - mynetwork
 
   backend:
-    image: hjiriamir/tpfoer-17
+    image: hjiriamir/tpfoyer-17:latest
     container_name: backend
     restart: on-failure
     ports:
