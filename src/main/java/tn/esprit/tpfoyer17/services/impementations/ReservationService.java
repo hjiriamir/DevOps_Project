@@ -97,6 +97,7 @@ public class ReservationService implements IReservationService {
                         .build());
 
 
+        //Vérifier capacité maximale de la chambre
         if (reservation.isEstValide() && (capaciteChambreMaximale(chambre))) {
             chambre.getReservations().add(reservation);
             reservation.getEtudiants().add(etudiant);
