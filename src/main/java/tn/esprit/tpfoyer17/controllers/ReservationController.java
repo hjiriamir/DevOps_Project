@@ -18,7 +18,6 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @RequestMapping("api/reservations")
 public class ReservationController {
-    IReservationService reservationService;
     @GetMapping("/retrieveAllReservation")
     public List<Reservation> retrieveAllReservation() {
         return reservationService.retrieveAllReservation();
@@ -55,5 +54,5 @@ public class ReservationController {
         return reservationService.getReservationParAnneeUniversitaireEtNomUniversiteKeyWord(anneeUniversite, nomUniversite);
     }
 
-    
+    IReservationService reservationService;
 }
