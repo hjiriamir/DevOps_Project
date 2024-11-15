@@ -12,10 +12,7 @@ import tn.esprit.tpfoyer17.repositories.FoyerRepository;
 import tn.esprit.tpfoyer17.repositories.UniversiteRepository;
 import tn.esprit.tpfoyer17.services.interfaces.IUniversiteService;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Service
 @AllArgsConstructor
@@ -24,6 +21,7 @@ import java.util.stream.StreamSupport;
 public class UniversiteService implements IUniversiteService {
     UniversiteRepository universiteRepository;
     FoyerRepository foyerRepository;
+
     @Override
     public List<Universite> retrieveAllUniversities() {
         return (List<Universite>) universiteRepository.findAll();
@@ -42,7 +40,6 @@ public class UniversiteService implements IUniversiteService {
         }
     }
 
-
     @Override
     public Universite updateUniversity(Universite u) {
         return universiteRepository.save(u);
@@ -53,14 +50,16 @@ public class UniversiteService implements IUniversiteService {
         return universiteRepository.findById(idUniversity).orElse(null);
     }
 
-
     @Override
-    public Universite desaffecterFoyerAUniversite( long idUniversite) {
+    public Universite desaffecterFoyerAUniversite(long idUniversite) {
         Universite universite = universiteRepository.findById(idUniversite).orElse(null);
-       // Foyer foyer = foyerRepository.findById(idFoyer).orElse(null);
-        universite.setFoyer(null);
-        return  universiteRepository.save(universite);
+        if (universite != null) {
+            universite.setFoyer(null);
+            return universiteRepository.save(universite);
+        }
+        return null;
     }
+
     public List<Universite> filterUniversities(String nomUniversite, String adresse) {
         return universiteRepository.findByNomUniversiteContainingAndAdresseContaining(nomUniversite, adresse);
     }
@@ -71,8 +70,8 @@ public class UniversiteService implements IUniversiteService {
         Universite universite = universiteRepository.findByNomUniversiteLike(nomUniversite);
         universite.setFoyer(foyer);
         return universiteRepository.save(universite);
-
     }
+
     public List<Universite> retrouverUniversitesParFoyer(boolean avecFoyer) {
         if (avecFoyer) {
             return universiteRepository.findByFoyerIsNotNull();
@@ -81,6 +80,40 @@ public class UniversiteService implements IUniversiteService {
         }
     }
 
+    // Advanced service method with conditional logic
+    public Universite processUniversityAction(long idUniversite, String actionType) {
+        Universite universite = universiteRepository.findById(idUniversite).orElse(null);
 
+        if (universite == null) {
+            throw new EntityNotFoundException("Université non trouvée avec l'ID: " + idUniversite);
+        }
 
+        switch (actionType.toLowerCase()) {
+            case "affecter_foyer":
+                // Sample logic to assign a foyer
+                Foyer foyer = foyerRepository.findById(1L) // Assuming 1L is a sample Foyer ID
+                        .orElseThrow(() -> new EntityNotFoundException("Foyer not found"));
+                universite.setFoyer(foyer);
+                log.info("Foyer affected to Université with ID: {}", idUniversite);
+                break;
+
+            case "desaffecter_foyer":
+                universite.setFoyer(null);
+                log.info("Foyer removed from Université with ID: {}", idUniversite);
+                break;
+
+            case "update_adresse":
+                // Example case to update the address conditionally
+                if ("old_address".equalsIgnoreCase(universite.getAdresse())) {
+                    universite.setAdresse("new_address");
+                    log.info("Address updated for Université with ID: {}", idUniversite);
+                }
+                break;
+
+            default:
+                throw new IllegalArgumentException("Unknown action type: " + actionType);
+        }
+
+        return universiteRepository.save(universite);
+    }
 }

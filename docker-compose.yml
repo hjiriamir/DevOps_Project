@@ -3,9 +3,9 @@ version: "3.8"
 services:
   appfront:
     build: .
-    image: majdi01/foyerfrontt
+    image:  majdi01/majdi-abdelkrim-5se2-g7-foyerfront
     restart: on-failure
-    container_name: frontcontt
+    container_name: front
     ports:
       - 4200:4200
   mysqldb:
@@ -22,7 +22,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: majdi01/tp-foyer:1.0.0
+    image: majdi01/majdi-abdelkrim-5se2-g7-foyer:1.0.0
     restart: on-failure
     ports:
       - 8082:8082

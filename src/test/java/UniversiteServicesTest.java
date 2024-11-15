@@ -202,4 +202,31 @@ public class UniversiteServicesTest {
         verify(universiteRepository, times(1)).findByFoyerIsNotNull();
         verify(universiteRepository, times(1)).findByFoyerIsNull();
     }
+
+    @Test
+    void testProcessUniversityAction_AffecterFoyer() {
+        // Arrange: Set up a sample university and foyer
+        Universite universite = new Universite();
+        universite.setIdUniversite(1L);
+
+        Foyer foyer = new Foyer();
+        foyer.setIdFoyer(1L);
+
+        // Mock the repositories to return the university and foyer
+        when(universiteRepository.findById(1L)).thenReturn(Optional.of(universite));
+        when(foyerRepository.findById(1L)).thenReturn(Optional.of(foyer));
+        when(universiteRepository.save(any(Universite.class))).thenReturn(universite);
+
+        // Act: Call the method with the "affecter_foyer" action
+        Universite result = universiteService.processUniversityAction(1L, "affecter_foyer");
+
+        // Assert: Check that the foyer was assigned correctly
+        assertNotNull(result, "The result should not be null");
+        assertNotNull(result.getFoyer(), "The foyer should be set on the university");
+        assertEquals(1L, result.getFoyer().getIdFoyer(), "The foyer ID should match");
+
+        // Verify that save was called on the updated university
+        verify(universiteRepository, times(1)).save(universite);
+    }
+
 }
