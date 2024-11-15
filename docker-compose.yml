@@ -23,15 +23,7 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=tpFoyer17
 
-  front-kaddem:
-    image: haithemlahdhiri/tpfoyer_frontend
-    ports:
-      - "80:80"
-    networks:
-      - foyerh
-    depends_on:
-      - spring-foyerr
-      - mysqldb
+  
 
 networks:
   foyerh:
