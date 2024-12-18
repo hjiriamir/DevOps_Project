@@ -38,7 +38,7 @@ Le pipeline Jenkins a été configuré pour automatiser le processus de build, d
 🕖 Vue de la Table dans Jenkins
 Pour visualiser la configuration et l'état des builds dans Jenkins, vous pouvez consulter l'image suivante :
 Vue de la Table Jenkins
-    lien vers l'image
+    lien vers dossier des resultats : https://drive.google.com/drive/folders/17doV5UKjp69657xKT8b4IX8ps6BQPvF8?usp=drive_link
 ✅ Conclusion
       Ce projet a permis de mettre en place une solution DevOps efficace pour l'application de gestion de foyer, en intégrant des outils 
       modernes pour améliorer la qualité du code, la couverture des tests et la surveillance du système. Grâce à cette expérience, j'ai 
