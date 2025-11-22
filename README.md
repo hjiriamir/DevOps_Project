@@ -1,88 +1,104 @@
 ⚙️ DevOps_Project — Solution DevOps pour la Gestion de Foyer
-<div style="width: 100%; text-align: center; padding: 50px; background-color: #f2f2f2; border: 2px solid #ccc; border-radius: 10px;"> <h1 style="font-size: 2em; color: #333;">Projet en cours de déploiement</h1> <p style="font-size: 1.2em; color: #666;">Le projet est actuellement opérationnel mais le code complet est disponible sur GitHub.</p> </div>
+<div style="width: 100%; text-align: center; padding: 50px; background-color: #f2f2f2; border: 2px solid #ccc; border-radius: 10px;"> <h1 style="font-size: 2em; color: #333;">Projet en cours de déploiement</h1> <p style="font-size: 1.2em; color: #666;">Le système est opérationnel en local et sur serveur, mais le code complet reste disponible sur GitHub.</p> </div>
 🌟 Présentation
 
-DevOps_Project est une solution DevOps complète conçue pour une application de gestion de foyer.
-Elle vise à automatiser les déploiements, améliorer la qualité du code et assurer une surveillance efficace pour garantir la fiabilité du système.
+DevOps_Project est une solution DevOps complète destinée à automatiser, surveiller et améliorer la qualité d’une application de gestion de foyer.
+Elle intègre un pipeline CI/CD, un système de monitoring avancé, un outil d’analyse de code et une gestion des artefacts pour assurer un déploiement fiable et reproductible.
 
-💻 Code source : Repo GitHub
+💻 Code source : Repo GitHub (privé ou à mettre ici)
 
 🔗 Démo en ligne : Non applicable (projet backend / DevOps)
 
 🛠️ Fonctionnalités principales
-Automatisation CI/CD avec Jenkins
+🔧 Automatisation CI/CD avec Jenkins
 
-Pipeline complet pour build, tests et déploiement
+Pipeline complet : build → tests → analyse → packaging → déploiement
 
 Construction automatique des images Docker
 
 Déploiement continu sur serveur Node.js
 
-Surveillance et métriques
+Gestion des logs de pipeline et suivi des étapes
 
-Prometheus pour la collecte des métriques
+📈 Surveillance & métriques
 
-Grafana pour la visualisation des performances en temps réel
+Prometheus pour la collecte des métriques système & application
 
-Alertes et tableaux de bord pour prévenir les incidents
+Grafana pour la création de dashboards dynamiques
 
-Qualité et tests
+Tableaux de bord temps réel : CPU, RAM, latence, trafic, erreurs
 
-Intégration de SonarQube pour analyser la qualité du code
+Alertes configurées pour prévenir les incidents
 
-Tests automatisés avec JUnit et Mockito
+🧹 Qualité du code
 
-Gestion des artefacts via Nexus
+Intégration complète de SonarQube
+
+Analyse : duplications, bugs, vulnérabilités, dette technique
+
+Tests unitaires et d’intégration automatisés (JUnit / Mockito)
+
+Gestion et versioning des artefacts via Nexus
 
 ⚡ Stack Technique
-Backend / CI/CD
+🔨 Backend / CI/CD
 
-Jenkins : CI/CD
+Jenkins
 
-Docker & Docker Compose : Conteneurisation
+Node.js
 
-Node.js : Scripts backend pour déploiement et monitoring
+Docker / Docker Compose
 
-Qualité & Test
+🧪 Qualité & Tests
 
-SonarQube : Analyse du code
+SonarQube
 
-JUnit & Mockito : Tests unitaires et d’intégration
+JUnit
 
-Nexus : Gestion des artefacts
+Mockito
 
-Monitoring
+Nexus (Artifact Repository)
 
-Prometheus : Collecte des métriques
+📊 Monitoring
 
-Grafana : Dashboards et visualisation des métriques
+Prometheus
 
-Versioning
+Grafana
 
-Git & GitHub : Gestion de version et collaboration
+🔁 Versioning
 
-🖼️ Captures d’écran
-🔹 Stages Jenkins
+Git & GitHub
+
+📸 Captures d’écran
+🔹 Pipeline Jenkins
+
+(exemple d’image – remplace le chemin par ton screenshot)
+images/jenkins_pipeline.png
 
 🔹 Dashboard Grafana
 
-🔹 Tableau Prometheus
+images/grafana_dashboard.png
 
-⚠️ Remplace les chemins images/... par les chemins réels de tes captures dans le repo ou par un lien direct.
+🔹 Console Prometheus
+
+images/prometheus_console.png
 
 🚀 Objectifs & Apprentissage
 
 Ce projet m’a permis de :
 
-Mettre en place une solution DevOps complète pour une application existante
+Construire un pipeline DevOps de A à Z
 
-Automatiser les builds, tests et déploiements avec Jenkins et Docker
+Automatiser le cycle complet : build → tests → packaging → déploiement
 
-Intégrer la surveillance des applications avec Prometheus et Grafana
+Déployer et configurer des outils DevOps professionnels :
+Jenkins, Docker, SonarQube, Nexus, Grafana, Prometheus
 
-Améliorer la qualité du code via SonarQube
+Mettre en place une surveillance avancée avec alerting
 
-Développer des compétences pratiques sur CI/CD, tests automatisés et monitoring
+Professionnaliser la gestion des environnements et artefacts
+
+Travailler sur la qualité et la fiabilité d’une application en production
 
 📫 Contact
 
@@ -94,8 +110,10 @@ Développer des compétences pratiques sur CI/CD, tests automatisés et monitori
 
 💡 Bonus
 
-Pipeline CI/CD modulaire et facile à étendre
+Pipeline CI/CD modulaire et extensible
 
-Dashboard de monitoring en temps réel
+Monitoring en temps réel (CPU, RAM, erreurs HTTP, latence...)
 
-Conteneurisation complète pour environnement reproductible
+Conteneurisation complète → environnement stable et reproductible
+
+Architecture DevOps prête pour la mise en production
