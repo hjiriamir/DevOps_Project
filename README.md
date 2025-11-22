@@ -11,7 +11,7 @@
 **DevOps_Project** est une solution DevOps complète conçue pour une application de gestion de foyer.  
 L’objectif est d’automatiser les déploiements, d’améliorer la qualité du code et d’assurer une surveillance efficace pour garantir la fiabilité du système.
 
-- 💻 **Code source :** Repo GitHub  :   https://github.com/hjiriamir/DevOps_Project
+- 💻 **Code source :** https://github.com/hjiriamir/DevOps_Project
 
 ---
 
