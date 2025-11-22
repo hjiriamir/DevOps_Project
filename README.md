@@ -58,13 +58,12 @@ L’objectif est d’automatiser les déploiements, d’améliorer la qualité d
 ## 📸 **Captures d’écran / Architecture**
 
 ### 🔹 Pipeline Jenkins
-<img width="1271" height="650" alt="Pipeline Jenkins" src="LIEN_IMAGE_JENKINS" />
+<img width="1366" height="768" alt="Capture d’écran (337)" src="https://github.com/user-attachments/assets/f8d99b81-f17e-45f3-ae2e-a6c6edb88ac0" />
 
-### 🔹 Dashboard Grafana
-<img width="1271" height="650" alt="Dashboard Grafana" src="LIEN_IMAGE_GRAFANA" />
 
-### 🔹 Métriques Prometheus
-<img width="1271" height="650" alt="Métriques Prometheus" src="LIEN_IMAGE_PROMETHEUS" />
+### 🔹 Dashboard Grafana & Métriques Prometheus
+<img width="1366" height="768" alt="Capture d’écran (365)" src="https://github.com/user-attachments/assets/9997f13d-17bb-4c3e-8719-96641a95f7af" />
+
 
 ---
 
