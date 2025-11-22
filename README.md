@@ -1,91 +1,101 @@
-🚀 DevOps_Project — Solution DevOps pour la Gestion de Foyer
-✅ Introduction
+⚙️ DevOps_Project — Solution DevOps pour la Gestion de Foyer
+<div style="width: 100%; text-align: center; padding: 50px; background-color: #f2f2f2; border: 2px solid #ccc; border-radius: 10px;"> <h1 style="font-size: 2em; color: #333;">Projet en cours de déploiement</h1> <p style="font-size: 1.2em; color: #666;">Le projet est actuellement opérationnel mais le code complet est disponible sur GitHub.</p> </div>
+🌟 Présentation
 
-Ce projet consiste à mettre en place une solution DevOps complète pour une application de gestion de foyer.
-L’objectif principal est :
+DevOps_Project est une solution DevOps complète conçue pour une application de gestion de foyer.
+Elle vise à automatiser les déploiements, améliorer la qualité du code et assurer une surveillance efficace pour garantir la fiabilité du système.
 
-Accélérer les cycles de déploiement
+💻 Code source : Repo GitHub
 
-Améliorer la couverture des tests
+🔗 Démo en ligne : Non applicable (projet backend / DevOps)
 
-Mettre en place des outils de surveillance pour garantir la fiabilité et la transparence du système
+🛠️ Fonctionnalités principales
+Automatisation CI/CD avec Jenkins
 
-🛠️ Outils et Technologies Utilisés
+Pipeline complet pour build, tests et déploiement
 
-Jenkins : Intégration continue et déploiement continu (CI/CD)
+Construction automatique des images Docker
 
-Git : Gestion de version du code source
+Déploiement continu sur serveur Node.js
 
-Docker : Conteneurisation de l’application
+Surveillance et métriques
 
-SonarQube : Analyse de la qualité du code
+Prometheus pour la collecte des métriques
 
-Nexus : Gestion des artefacts et stockage des fichiers JAR
+Grafana pour la visualisation des performances en temps réel
 
-JUnit & Mockito : Tests automatisés
+Alertes et tableaux de bord pour prévenir les incidents
 
-Prometheus & Grafana : Surveillance et visualisation des métriques
+Qualité et tests
 
-📈 Résultats Obtenus
+Intégration de SonarQube pour analyser la qualité du code
 
-Accélération des cycles de déploiement : réduction de 40 % grâce à l’automatisation
+Tests automatisés avec JUnit et Mockito
 
-Amélioration de la couverture des tests : portée à 95 % avec l’intégration des tests automatisés
+Gestion des artefacts via Nexus
 
-Réduction des incidents non détectés : diminution de 20 % grâce à la surveillance proactive
+⚡ Stack Technique
+Backend / CI/CD
 
-Amélioration de la visibilité et de la réactivité : suivi en temps réel des performances avec Prometheus et Grafana
+Jenkins : CI/CD
 
-⚙️ Configuration de l’Environnement
-🕹️ Fichiers de Configuration
+Docker & Docker Compose : Conteneurisation
 
-Les fichiers essentiels pour le déploiement sont inclus dans le projet :
+Node.js : Scripts backend pour déploiement et monitoring
 
-docker-compose.yml : définit les services nécessaires (base de données MySQL et backend de l’application)
+Qualité & Test
 
-Dockerfile : définit l’image Docker pour le backend, incluant le téléchargement du fichier JAR depuis Nexus
+SonarQube : Analyse du code
 
-🔄 CI/CD avec Jenkins
+JUnit & Mockito : Tests unitaires et d’intégration
 
-Le pipeline Jenkins automatise :
+Nexus : Gestion des artefacts
 
-Le clonage du dépôt Git
+Monitoring
 
-La construction de l’image Docker
+Prometheus : Collecte des métriques
 
-L’exécution des tests automatisés
+Grafana : Dashboards et visualisation des métriques
 
-Le déploiement de l’application sur le serveur
+Versioning
+
+Git & GitHub : Gestion de version et collaboration
 
 🖼️ Captures d’écran
 🔹 Stages Jenkins
-Stages Jenkins
 
-<img width="1366" height="768" alt="Capture d’écran (337)" src="https://github.com/user-attachments/assets/5c263899-2dcc-4ec4-91f0-4b860c837a46" />
+🔹 Dashboard Grafana
 
+🔹 Tableau Prometheus
 
+⚠️ Remplace les chemins images/... par les chemins réels de tes captures dans le repo ou par un lien direct.
 
-🔹 Dashboard Grafana & Tableau Prometheus
+🚀 Objectifs & Apprentissage
 
+Ce projet m’a permis de :
 
-<img width="1366" height="768" alt="Capture d’écran (365)" src="https://github.com/user-attachments/assets/4863e24d-d4ad-43e3-b69b-4ad44a79d248" />
+Mettre en place une solution DevOps complète pour une application existante
 
+Automatiser les builds, tests et déploiements avec Jenkins et Docker
 
+Intégrer la surveillance des applications avec Prometheus et Grafana
 
-🏁 Conclusion
+Améliorer la qualité du code via SonarQube
 
-Ce projet a permis de mettre en place une solution DevOps efficace pour l’application de gestion de foyer, intégrant :
-
-Automatisation du déploiement
-
-Qualité du code et couverture de tests améliorées
-
-Supervision et suivi en temps réel du système
-
-Cette expérience m’a permis de renforcer mes compétences en DevOps, CI/CD, tests automatisés et surveillance d’applications.
+Développer des compétences pratiques sur CI/CD, tests automatisés et monitoring
 
 📫 Contact
 
 ✉️ Email : Amir.HJIRI@esprit.tn
 
 💼 LinkedIn : linkedin.com/in/amir-hjiri
+
+🌐 Portfolio : port-folio-amir.vercel.app
+
+💡 Bonus
+
+Pipeline CI/CD modulaire et facile à étendre
+
+Dashboard de monitoring en temps réel
+
+Conteneurisation complète pour environnement reproductible
